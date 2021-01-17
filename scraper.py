@@ -76,7 +76,13 @@ def process_report(report, url):
     )
 
     data = dict(
-        title=title, description=description, city=city, date=date, rg_id=rg_id, url=url
+        title=title,
+        description=description,
+        city=city,
+        date=date,
+        rg_id=rg_id,
+        url=url,
+        chronicler_name="LEUCHTLINIE",
     )
     tab_incidents.upsert(data, ["rg_id"])
 
