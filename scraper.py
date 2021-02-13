@@ -70,9 +70,10 @@ def process_report(report, url):
     city = report.select_one(".views-field-field-chronik-stadt").get_text().strip()
     date = parser.parse(report.select_one(".date-display-single").get("content"))
 
+    # the URL is always changing because of pagination
     rg_id = (
         "leuchtlinie-"
-        + md5((url + date.isoformat() + city + description).encode()).hexdigest()
+        + md5((date.isoformat() + city + description).encode()).hexdigest()
     )
 
     data = dict(
